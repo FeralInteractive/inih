@@ -29,7 +29,7 @@ int dumper(void* user, const char* section, const char* name,
     User = *((int*)user);
     if (strcmp(section, Prev_section)) {
         printf("... [%s]\n", section);
-        strncpy(Prev_section, section, sizeof(Prev_section));
+        strncpy(Prev_section, section, sizeof(Prev_section) - 1);
         Prev_section[sizeof(Prev_section) - 1] = '\0';
     }
 

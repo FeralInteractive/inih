@@ -11,7 +11,7 @@ static int dumper(void* user, const char* section, const char* name,
 
     if (strcmp(section, prev_section)) {
         printf("%s[%s]\n", (prev_section[0] ? "\n" : ""), section);
-        strncpy(prev_section, section, sizeof(prev_section));
+        strncpy(prev_section, section, sizeof(prev_section) - 1);
         prev_section[sizeof(prev_section) - 1] = '\0';
     }
     printf("%s = %s\n", name, value);
